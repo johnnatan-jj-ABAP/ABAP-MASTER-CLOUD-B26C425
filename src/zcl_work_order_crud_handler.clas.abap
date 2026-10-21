@@ -195,55 +195,55 @@ CLASS zcl_work_order_crud_handler IMPLEMENTATION.
 
     " Crear:
 
-    ls_order-work_order_id = '0000000001'.
-    ls_order-customer_id   = '00000001'.
-    ls_order-technician_id = '00000001'.
-    ls_order-priority      = 'A'.
-    ls_order-status        = 'PE'.
-
-    me->create_work_order(
-       EXPORTING i_work_order = ls_order
-       IMPORTING e_success    = DATA(lv_ok_c)
-                 e_message    = DATA(lv_msg_c)
-     ).
-
-    out->write( |[Create] Éxito: { lv_ok_c } - Mensaje: { lv_msg_c }| ).
-
-
-    "Lectura:
-
-    me->read_work_order(
-      EXPORTING i_order_id   = '0000000001'
-      IMPORTING e_work_order = DATA(ls_read_res)
-                e_success    = DATA(lv_ok_r)
-                e_message    = DATA(lv_msg_r)
-    ).
-    out->write( |READ] Éxito: { lv_ok_r } - Mensaje: { lv_msg_r }| ).
+*    ls_order-work_order_id = '0000000006'.
+*    ls_order-customer_id   = '00000002'.
+*    ls_order-technician_id = 'TECH0001'.
+*    ls_order-priority      = 'B'.
+*    ls_order-status        = 'PE'.
+*
+*    me->create_work_order(
+*       EXPORTING i_work_order = ls_order
+*       IMPORTING e_success    = DATA(lv_ok_c)
+*                 e_message    = DATA(lv_msg_c)
+*     ).
+*
+*    out->write( |[Create] Éxito: { lv_ok_c } - Mensaje: { lv_msg_c }| ).
 
 
-    "Actualización
+*    "Lectura:
 
-    ls_order-status = 'CO'.
-    me->update_work_order(
-      EXPORTING i_work_order = ls_order
-      IMPORTING e_success    = DATA(lv_ok_u)
-                e_message    = DATA(lv_msg_u)
-    ).
-    out->write( |[UPDATE] Éxito: { lv_ok_u } - Mensaje: { lv_msg_u }| ).
+*    me->read_work_order(
+*      EXPORTING i_order_id   = '0000000001'
+*      IMPORTING e_work_order = DATA(ls_read_res)
+*                e_success    = DATA(lv_ok_r)
+*                e_message    = DATA(lv_msg_r)
+*    ).
+*    out->write( |READ] Éxito: { lv_ok_r } - Mensaje: { lv_msg_r }| ).
 
-    "Eliminar
-
+*
+*    "Actualización
+*
+*    ls_order-work_order_id = '0000000001'.
+*    ls_order-status = 'CO'.
+*    me->update_work_order(
+*      EXPORTING i_work_order = ls_order
+*      IMPORTING e_success    = DATA(lv_ok_u)
+*                e_message    = DATA(lv_msg_u)
+*    ).
+*    out->write( |[UPDATE] Éxito: { lv_ok_u } - Mensaje: { lv_msg_u }| ).
+*
+*    "Eliminar
+*
 
     me->delete_work_order(
-      EXPORTING i_order_id = '0000000001'
-                i_status   = 'CO'
+      EXPORTING i_order_id = '0000000005'
+                i_status   = 'PE'
       IMPORTING e_success    = DATA(lv_ok_d)
                 e_message    = DATA(lv_msg_d)
     ).
     out->write( |[DELETE] Éxito: { lv_ok_d } - Mensaje: { lv_msg_d }| ).
 
     out->write( ' FIN DE LA EJECUCIÓN ' ).
-
   ENDMETHOD.
 
 ENDCLASS.
