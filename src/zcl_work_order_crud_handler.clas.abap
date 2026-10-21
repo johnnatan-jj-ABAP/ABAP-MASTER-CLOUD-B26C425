@@ -132,7 +132,7 @@ CLASS zcl_work_order_crud_handler IMPLEMENTATION.
     ).
 
     IF lv_is_valid = abap_false.
-      e_message = 'Validación denegada: La orden no existe o el estado enviado no es válido.'.
+      e_message = 'Validación denegada'.
       RETURN.
     ENDIF.
 
@@ -223,27 +223,27 @@ CLASS zcl_work_order_crud_handler IMPLEMENTATION.
 *
 *    "Actualización
 *
-*    ls_order-work_order_id = '0000000001'.
-*    ls_order-status = 'CO'.
-*    me->update_work_order(
-*      EXPORTING i_work_order = ls_order
-*      IMPORTING e_success    = DATA(lv_ok_u)
-*                e_message    = DATA(lv_msg_u)
-*    ).
-*    out->write( |[UPDATE] Éxito: { lv_ok_u } - Mensaje: { lv_msg_u }| ).
+    ls_order-work_order_id = '0000000001'.
+    ls_order-status = 'CO'.
+    me->update_work_order(
+      EXPORTING i_work_order = ls_order
+      IMPORTING e_success    = DATA(lv_ok_u)
+                e_message    = DATA(lv_msg_u)
+    ).
+    out->write( |[UPDATE] Éxito: { lv_ok_u } - Mensaje: { lv_msg_u }| ).
 *
 *    "Eliminar
 *
 
-    me->delete_work_order(
-      EXPORTING i_order_id = '0000000005'
-                i_status   = 'PE'
-      IMPORTING e_success    = DATA(lv_ok_d)
-                e_message    = DATA(lv_msg_d)
-    ).
-    out->write( |[DELETE] Éxito: { lv_ok_d } - Mensaje: { lv_msg_d }| ).
-
-    out->write( ' FIN DE LA EJECUCIÓN ' ).
+*    me->delete_work_order(
+*      EXPORTING i_order_id = '0000000005'
+*                i_status   = 'PE'
+*      IMPORTING e_success    = DATA(lv_ok_d)
+*                e_message    = DATA(lv_msg_d)
+*    ).
+*    out->write( |[DELETE] Éxito: { lv_ok_d } - Mensaje: { lv_msg_d }| ).
+*
+*    out->write( ' FIN DE LA EJECUCIÓN ' ).
   ENDMETHOD.
 
 ENDCLASS.

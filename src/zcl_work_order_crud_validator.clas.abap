@@ -175,6 +175,15 @@ CLASS zcl_work_order_crud_validator IMPLEMENTATION.
       RETURN.
     ENDIF.
 
+    SELECT SINGLE history_id
+      FROM ztworkorder_hist
+      WHERE work_order_id = @i_work_order_id
+      INTO @DATA(lv_exists_hist).
+
+    IF sy-subrc = 0.
+      RETURN.
+    ENDIF.
+
     rv_valid = abap_true.
 
   ENDMETHOD.
