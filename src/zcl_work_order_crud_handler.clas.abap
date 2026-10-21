@@ -235,15 +235,15 @@ CLASS zcl_work_order_crud_handler IMPLEMENTATION.
 *    "Eliminar
 *
 
-*    me->delete_work_order(
-*      EXPORTING i_order_id = '0000000005'
-*                i_status   = 'PE'
-*      IMPORTING e_success    = DATA(lv_ok_d)
-*                e_message    = DATA(lv_msg_d)
-*    ).
-*    out->write( |[DELETE] Éxito: { lv_ok_d } - Mensaje: { lv_msg_d }| ).
-*
-*    out->write( ' FIN DE LA EJECUCIÓN ' ).
+    me->delete_work_order(
+      EXPORTING i_order_id = '0000000005'
+                i_status   = 'PE'
+      IMPORTING e_success    = DATA(lv_ok_d)
+                e_message    = DATA(lv_msg_d)
+    ).
+    out->write( |[DELETE] Éxito: { lv_ok_d } - Mensaje: { lv_msg_d }| ).
+
+    out->write( ' FIN DE LA EJECUCIÓN ' ).
   ENDMETHOD.
 
 ENDCLASS.
